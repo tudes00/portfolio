@@ -5,27 +5,27 @@ export default function AboutCommand({
 }: {
   onLoadEnd?: () => void;
 }): JSX.Element {
-    const [fileText, setfileText] = useState<string | null>(null);
+  const [fileText, setfileText] = useState<string | null>(null);
 
-      useEffect(() => {
-      fetch("/files/about.txt")
-        .then((res) => res.text())
-        .then((text) => {
-          setfileText(text);
-          setTimeout(() => {
-            onLoadEnd?.();
-          }, 30);
-        })
-        .catch(() => {
-            setfileText("Error loading about information.");
-        });
+  useEffect(() => {
+    fetch("/files/about.txt")
+      .then((res) => res.text())
+      .then((text) => {
+        setfileText(text);
+        setTimeout(() => {
+          onLoadEnd?.();
+        }, 30);
+      })
+      .catch(() => {
+        setfileText("Error loading about information.");
+      });
   }, [onLoadEnd]);
 
-  
   if (fileText !== null) {
     console.log("About file loaded:", fileText);
     return (
-      <div className="terminal-html"
+      <div
+        className="terminal-html"
         dangerouslySetInnerHTML={{ __html: fileText }}
       />
     );
@@ -33,5 +33,3 @@ export default function AboutCommand({
 
   return <span>Loading ...</span>;
 }
-
-  

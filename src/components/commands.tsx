@@ -13,12 +13,8 @@ export const commands: Command = [
     desc: "About me",
   },
   {
-    cmd: "contact",
-    desc: "How to contact me",
-  },
-  {
-    cmd: "clear",
-    desc: "Clear the terminal screen",
+    cmd: "links",
+    desc: "List my social media links and contact information",
   },
   {
     cmd: "skills",
@@ -49,7 +45,7 @@ export const commands: Command = [
     desc: "List files in the current directory",
   },
   {
-    cmd: "links",
-    desc: "List my social media links",
+    cmd: "clear",
+    desc: "Clear the terminal screen",
   },
 ];

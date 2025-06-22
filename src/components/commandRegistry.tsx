@@ -2,6 +2,8 @@ import help from "./commands/help";
 import CatCommand from "./commands/cat";
 import AboutCommand from "./commands/about";
 import skills from "./commands/skills";
+import links from "./commands/links";
+import stats from "./commands/stats";
 
 import { JSX } from "react";
 
@@ -13,5 +15,7 @@ export function commandRegistry(
     cat: (args?: string) => <CatCommand args={args} onLoadEnd={onLoadEnd} />,
     about: () => <AboutCommand onLoadEnd={onLoadEnd} />,
     skills,
+    links,
+    stats,
   };
 }

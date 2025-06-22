@@ -25,11 +25,11 @@ export const commands: Command = [
     desc: "Show my stats",
   },
   {
-    cmd: "projects",
+    cmd: "project",
     desc: "List my projects",
   },
   {
-    cmd: "projects <project_name>",
+    cmd: "project <project_name>",
     desc: "Get details about a specific project",
   },
   {

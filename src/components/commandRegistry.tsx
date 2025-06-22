@@ -4,6 +4,7 @@ import AboutCommand from "./commands/about";
 import skills from "./commands/skills";
 import links from "./commands/links";
 import stats from "./commands/stats";
+import ProjectCommand from "./commands/project";
 
 import { JSX } from "react";
 
@@ -17,5 +18,6 @@ export function commandRegistry(
     skills,
     links,
     stats,
+    project: (args?: string) => <ProjectCommand args={args} onLoadEnd={onLoadEnd} />,
   };
 }

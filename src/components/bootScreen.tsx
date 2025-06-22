@@ -4,68 +4,66 @@ type BootScreenProps = {
   onBootEnd: () => void;
 };
 
-
 export default function BootScreen({ onBootEnd }: BootScreenProps) {
-    const [ascii, setAscii] = useState<string>('');
-    const [progress, setProgress] = useState(0);
-    const totalLength = 40;
+  const [ascii, setAscii] = useState<string>("");
+  const [progress, setProgress] = useState(0);
+  const totalLength = 40;
 
-    function getRandomInt(min: number, max: number): number {
-        const minCeiled = Math.ceil(min);
-        const maxFloored = Math.floor(max);
-        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+  function getRandomInt(min: number, max: number): number {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+  }
+
+  useEffect(() => {
+    async function loadAscii() {
+      const response = await fetch("/ascii/logo.txt");
+      const text = await response.text();
+      setAscii(text);
     }
-    
-    useEffect(() => {
-            async function loadAscii() {
-                const response = await fetch("/ascii/logo.txt");
-                const text = await response.text();
-                setAscii(text);
-            }
-            loadAscii();
-    }, [ascii]);
+    loadAscii();
+  }, [ascii]);
 
-    useEffect(() => {
-        const startDelay = getRandomInt(2500, 3500);
+  useEffect(() => {
+    const startDelay = getRandomInt(2500, 3500);
 
-        const startLoading = () => {
-            function tick() {
-            setProgress((prev) => {
-                if (prev >= 100) {
-                    onBootEnd();
-                    return 100;
-                };
+    const startLoading = () => {
+      function tick() {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            onBootEnd();
+            return 100;
+          }
 
-                const next = prev + getRandomInt(1, 3);
+          const next = prev + getRandomInt(1, 3);
 
-                setTimeout(tick, getRandomInt(200, 1500)); 
+          setTimeout(tick, getRandomInt(200, 1500));
 
-                return next;
-            });
-            }
+          return next;
+        });
+      }
 
-        tick();
-  };
+      tick();
+    };
 
-  const timeout = setTimeout(startLoading, startDelay);
+    const timeout = setTimeout(startLoading, startDelay);
 
-  return () => clearTimeout(timeout);
-}, [onBootEnd]);
+    return () => clearTimeout(timeout);
+  }, [onBootEnd]);
 
-    const filledLength = Math.round((progress / 100) * totalLength);
-    const bar =
-        '█'.repeat(filledLength) + '░'.repeat(totalLength - filledLength);
+  const filledLength = Math.round((progress / 100) * totalLength);
+  const bar = "█".repeat(filledLength) + "░".repeat(totalLength - filledLength);
 
   return (
     <div className="boot-screen">
-        <div className="boot-content">
-            <pre className="boot-logo select-none text-center">
-            {ascii}
-            </pre>
-            <div className="boot-text">
-            <p>{bar} {progress}%</p>
-            </div>
+      <div className="boot-content">
+        <pre className="boot-logo select-none text-center">{ascii}</pre>
+        <div className="boot-text">
+          <p>
+            {bar} {progress}%
+          </p>
         </div>
+      </div>
     </div>
   );
 }

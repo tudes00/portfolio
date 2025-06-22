@@ -1,7 +1,7 @@
 const TermInfo = () => {
   return (
     <div className="terminal-info">
-        <p>tudes@tudesPC:~$ </p>
+      <p>tudes@tudesPC:~$ </p>
     </div>
   );
 };

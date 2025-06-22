@@ -25,7 +25,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 .ascii-wrapper {
   position: relative;
   font-family: monospace;
@@ -34,42 +33,42 @@ body {
 }
 
 .blue-output {
-    color: #80CFD2;
+  color: #80cfd2;
 }
 
 .blue-input {
-    color: #9FC9C1;
+  color: #9fc9c1;
 }
 
 .red-output {
-    color: #BE8D84;
+  color: #be8d84;
 }
 
 .green {
-    color: #0B9343;
+  color: #0b9343;
 }
 
 /* Terminal */
 .terminal-overlay {
   position: absolute;
-  top: calc(5 * 1.6em);     /* position de la 5e ligne */
-  left: 30ch;                /* espace après "|   | " */
-  width: 158ch;              /* largeur de l'espace entre les bords */
+  top: calc(5 * 1.6em); /* position de la 5e ligne */
+  left: 30ch; /* espace après "|   | " */
+  width: 158ch; /* largeur de l'espace entre les bords */
   height: calc(18 * 2.3em); /* 18 lignes de haut */
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 16px;
   line-height: 1.2;
   white-space: pre-wrap;
-  word-break: break-word; 
+  word-break: break-word;
   overflow-y: auto;
   overflow-x: hidden;
-  color: #0B9343;
+  color: #0b9343;
   background: transparent;
   padding-right: 1ch;
   display: flex;
   flex-direction: column;
   scrollbar-width: none;
-  
+
   overflow-y: auto;
   scroll-behavior: smooth;
 }
@@ -78,8 +77,23 @@ body {
   display: none;
 }
 
+.terminal-cursor {
+  animation: blink 1s ease-in-out infinite;
+  pointer-events: none;
+  display: inline-block;
+}
 
-
+@keyframes blink {
+  0%,
+  100% {
+    background-color: rgba(159, 201, 193, 1);
+    color: black;
+  }
+  50% {
+    background-color: rgba(159, 201, 193, 0);
+    color: #9fc9c1;
+  }
+}
 
 
 /* Boot */
@@ -101,7 +115,8 @@ body {
 }
 
 @keyframes bootLogoPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.85;
     transform: scale(1);
     filter: brightness(1);
@@ -114,18 +129,19 @@ body {
 }
 
 @keyframes bootLogoScan {
-  0%, 100% {
-    text-shadow: 0 0 0px #0B9343;
+  0%,
+  100% {
+    text-shadow: 0 0 0px #0b9343;
   }
   50% {
-    text-shadow: 0 0 2px #0B9343;
+    text-shadow: 0 0 2px #0b9343;
   }
 }
 
 .boot-screen {
   position: fixed;
   inset: 0;
-  color: #0B9343;
+  color: #0b9343;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,7 +152,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
 }
 
 .boot-logo {
@@ -151,9 +167,9 @@ body {
 }
 
 .boot-text {
-    margin-top: 35px;
+  margin-top: 35px;
   font-size: 1rem;
-  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-family: "Fira Code", "Cascadia Code", "Courier New", monospace;
   white-space: pre;
   line-height: 1.2;
   letter-spacing: 0;

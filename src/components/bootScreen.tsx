@@ -31,7 +31,7 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
       function tick() {
         setProgress((prev) => {
           if (prev >= 100) {
-            onBootEnd();
+            setTimeout(onBootEnd, 20);
             return 100;
           }
 

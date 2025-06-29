@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Turl",
+    "desc": "Manage your links easily with Turl, an advanced and open-source URL shortener packed with powerful features! 🚀",
+    "img": "/images/eturl.png",
+    "link": "https://eturl.vercel.app/s/turl",
+    "status": "done"
+  },
+  {
+    "name": "Better Pronote",
+    "desc": "Better Pronote is an extension that enhances your Pronote experience with various options. It adds features and customizes your interface.",
+    "img": "https://bp.okman65.xyz/assets/logo.png",
+    "status": "In progress"
+  },
+  {
+    "name": "Stay Motivated",
+    "desc": "Create personalized roadmaps, earn XP, level up, and unlock achievements as you make progress toward your goals.",
+    "img": "/images/staym.png",
+    "status": "In progress"
+  }
+]

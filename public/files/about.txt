@@ -1,4 +1,4 @@
 <h1 style="font-size: 1.3rem;">Hi, I&#39;m <strong>Tudes</strong> 👋,</h1>
-I am a french 🥖 student who <strong>loves programming</strong>👨‍💻, strong>climbing🧗‍♂️</strong> and <strong>cybersecurity</strong>🛡️!
+I am a french 🥖 student who <strong>loves programming</strong>👨‍💻, <strong>climbing🧗‍♂️</strong> and <strong>cybersecurity</strong>🛡️!
 My interests include frontend development, UI/UX design, malware analysis, and learning new things!
 Feel free to contact me!

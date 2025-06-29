@@ -1,6 +1,7 @@
 type Command = {
   cmd: string;
   desc: string;
+  available?: boolean;
 }[];
 
 export const commands: Command = [
@@ -33,16 +34,34 @@ export const commands: Command = [
     desc: "Get details about a specific project",
   },
   {
+    cmd: "blog",
+    desc: "List my blogs",
+    available: false,
+  },
+  {
+    cmd: "blog <blog_name>",
+    desc: "Get details about a blog",
+    available: false,
+  },
+  {
+    cmd: "neofetch",
+    desc: "Print info about this device",
+    available: false,
+  },
+  {
     cmd: "shutdown",
     desc: "Shut down the pc",
+    available: false,
   },
   {
     cmd: "cat <filename>",
     desc: "Display the contents of a file",
+    available: false,
   },
   {
     cmd: "ls",
     desc: "List files in the current directory",
+    available: false,
   },
   {
     cmd: "clear",

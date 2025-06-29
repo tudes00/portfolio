@@ -18,6 +18,8 @@ export function commandRegistry(
     skills,
     links,
     stats,
-    project: (args?: string) => <ProjectCommand args={args} onLoadEnd={onLoadEnd} />,
+    project: (args?: string) => (
+      <ProjectCommand args={args} onLoadEnd={onLoadEnd} />
+    ),
   };
 }

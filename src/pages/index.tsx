@@ -2,14 +2,14 @@ import { useState } from "react";
 import AsciiLayout from "../components/asciiLayout";
 import Terminal from "../components/terminal";
 import BootScreen from "../components/bootScreen";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const [bootFinished, setBootFinished] = useState(true);
 
   return (
     <AsciiLayout>
-    <Analytics />
+      <Analytics />
       {bootFinished ? (
         <Terminal />
       ) : (

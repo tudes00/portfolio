@@ -41,8 +41,8 @@ export default function Terminal() {
 
   useEffect(() => {
     if (!terminalBottomRef.current) return;
-    terminalBottomRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
+    scrollToBottom();
+  }, [history, scrollToBottom]);
 
   useEffect(() => {
     scrollToBottom();

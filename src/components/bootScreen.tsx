@@ -22,7 +22,7 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
       setAscii(text);
     }
     loadAscii();
-  }, [ascii]);
+  }, []);
 
   useEffect(() => {
     const startDelay = getRandomInt(2500, 3500);
@@ -35,7 +35,7 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
             return 100;
           }
 
-          const next = prev + getRandomInt(1, 3);
+          const next = Math.min(prev + getRandomInt(1, 3), 100);
 
           setTimeout(tick, getRandomInt(200, 1500));
 
@@ -57,7 +57,7 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
   return (
     <div className="boot-screen">
       <div className="boot-content">
-        <pre className="boot-logo select-none text-center">{ascii}</pre>
+        <pre className="boot-logo select-none">{ascii}</pre>
         <div className="boot-text">
           <p>
             {bar} {progress}%

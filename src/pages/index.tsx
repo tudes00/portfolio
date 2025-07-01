@@ -5,7 +5,7 @@ import BootScreen from "../components/bootScreen";
 import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
-  const [bootFinished, setBootFinished] = useState(false);
+  const [bootFinished, setBootFinished] = useState(true);
 
   return (
     <AsciiLayout>

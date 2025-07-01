@@ -25,9 +25,8 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
   }, []);
 
   useEffect(() => {
-    const isProd = process.env.NODE_ENV === "production";
-    const startDelay = isProd ? 500 : getRandomInt(2500, 3500);
-    const tickDelay = isProd ? 100 : getRandomInt(200, 1500);
+    const startDelay = 500;
+    const tickDelay = 100;
 
     const startLoading = () => {
       function tick() {

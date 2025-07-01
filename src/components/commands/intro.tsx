@@ -9,20 +9,19 @@ export default function IntroCommand({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-      fetch("/files/intro.txt")
-        .then((res) => res.text())
-        .then((text) => {
-          setfileText(text);
-          setLoading(false);
-          setTimeout(() => {
-            onLoadEnd?.();
-          }, 30);
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    }, [onLoadEnd]);
-
+    fetch("/files/intro.txt")
+      .then((res) => res.text())
+      .then((text) => {
+        setfileText(text);
+        setLoading(false);
+        setTimeout(() => {
+          onLoadEnd?.();
+        }, 30);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [onLoadEnd]);
 
   if (fileText !== null) {
     return (
@@ -32,7 +31,7 @@ export default function IntroCommand({
       />
     );
   }
-  if(!loading) return <span>Error when loading intro file</span>
+  if (!loading) return <span>Error when loading intro file</span>;
 
   return <span>Loading...</span>;
 }

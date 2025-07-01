@@ -59,5 +59,10 @@ export const commands: Command = [
     cmd: "shutdown",
     desc: "Shut down the pc",
     available: false,
-  }
+  },
+  {
+    cmd: "settings",
+    desc: "Settings...",
+    available: false,
+  },
 ];

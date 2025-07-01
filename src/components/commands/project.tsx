@@ -21,59 +21,61 @@ export default function ProjectCommand({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-  fetch(`/projects/allProjects.json`)
-    .then((res) => {
-      if (!res.ok) {
-        setProjects([]);
-        setLoading(false);
-        return Promise.reject();
-      }
-      return res.json();
-    })
-    .then((data) => {
-      setProjects(data);
-
-      if (args) {
-        const found = data.some((project: { name: string; }) => project.name.toLowerCase() === args.toLowerCase());
-
-        if (!found) {
-          setfileText(null);
+    fetch(`/projects/allProjects.json`)
+      .then((res) => {
+        if (!res.ok) {
+          setProjects([]);
           setLoading(false);
-          return;
+          return Promise.reject();
         }
+        return res.json();
+      })
+      .then((data) => {
+        setProjects(data);
 
-        fetch(`/projects/${args}.txt`)
-          .then((res) => {
-            if (!res.ok) {
-              setLoading(false);
-              return Promise.reject();
-            }
-            return res.text();
-          })
-          .then((text) => {
-            setfileText(text);
-            setLoading(false);
-            setTimeout(() => {
-              onLoadEnd?.();
-            }, 30);
-          })
-          .catch(() => {
+        if (args) {
+          const found = data.some(
+            (project: { name: string }) =>
+              project.name.toLowerCase() === args.toLowerCase(),
+          );
+
+          if (!found) {
             setfileText(null);
             setLoading(false);
-          });
-      } else {
-        setLoading(false);
-        setTimeout(() => {
-          onLoadEnd?.();
-        }, 30);
-      }
-    })
-    .catch(() => {
-      setfileText(null);
-      setLoading(false);
-    });
-}, [args, onLoadEnd]);
+            return;
+          }
 
+          fetch(`/projects/${args}.txt`)
+            .then((res) => {
+              if (!res.ok) {
+                setLoading(false);
+                return Promise.reject();
+              }
+              return res.text();
+            })
+            .then((text) => {
+              setfileText(text);
+              setLoading(false);
+              setTimeout(() => {
+                onLoadEnd?.();
+              }, 30);
+            })
+            .catch(() => {
+              setfileText(null);
+              setLoading(false);
+            });
+        } else {
+          setLoading(false);
+          setTimeout(() => {
+            onLoadEnd?.();
+          }, 30);
+        }
+      })
+      .catch(() => {
+        setfileText(null);
+        setLoading(false);
+      });
+  }, [args, onLoadEnd]);
 
   if (!args) {
     if (projects.length > 0) {
@@ -123,18 +125,18 @@ export default function ProjectCommand({
                     <span className="text-zinc-400 leading-snug line-clamp-3 ml-2">
                       {project.desc}
                     </span>
-                    {project.link ?
-                    (
-                        <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 text-blue-400 hover:text-blue-300  text-sm transition"
-                    >
-                      🔗 Explore
-                    </a>
-                    )
-                    : <p></p>}
+                    {project.link ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 text-blue-400 hover:text-blue-300  text-sm transition"
+                      >
+                        🔗 Explore
+                      </a>
+                    ) : (
+                      <p></p>
+                    )}
                   </div>
                 </div>
               );
@@ -142,9 +144,9 @@ export default function ProjectCommand({
           </div>
 
           <p className="mt-2">
-  Type <span className="blue-output">project &lt;name&gt;</span> to view details.
-</p>
-
+            Type <span className="blue-output">project &lt;name&gt;</span> to
+            view details.
+          </p>
         </>
       );
     } else {
@@ -153,12 +155,7 @@ export default function ProjectCommand({
   }
 
   if (fileText !== null) {
-    return (
-      <div
-        className=""
-        dangerouslySetInnerHTML={{ __html: fileText }}
-      />
-    );
+    return <div className="" dangerouslySetInnerHTML={{ __html: fileText }} />;
   }
 
   if (!loading) {

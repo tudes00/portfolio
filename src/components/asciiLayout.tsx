@@ -13,24 +13,27 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
       const response = await fetch("/ascii/monitor.txt");
       const text = await response.text();
       setAscii(text);
-
-      const lines = text.split("\n").length;
-      const screenHeight = window.innerHeight;
-
-      const computedFontSize = Math.floor(screenHeight / lines);
-      setFontSize(computedFontSize);
     }
 
     loadAscii();
 
     const onResize = () => {
       if (ascii) {
-        const lines = ascii.split("\n").length;
-        const screenHeight = window.innerHeight;
-        const computedFontSize = Math.floor(screenHeight / lines);
+         const lines = ascii.split("\n").length;
+      const maxLineLength = Math.max(...ascii.split("\n").map(line => line.length));
+
+      const screenHeight = window.innerHeight;
+      const screenWidth = window.innerWidth;
+
+      const heightBased = Math.floor(screenHeight / lines);
+      const CHAR_WIDTH_RATIO = 0.55;
+
+        const widthBased = Math.floor(screenWidth / (maxLineLength * CHAR_WIDTH_RATIO));
+      const computedFontSize = Math.min(heightBased, widthBased);
         setFontSize(computedFontSize);
       }
     };
+    onResize();
 
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);

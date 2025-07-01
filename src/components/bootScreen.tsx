@@ -39,7 +39,7 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
 
           const next = Math.min(prev + getRandomInt(1, 3), 100);
 
-          setTimeout(tick, getRandomInt(200, 1500));
+          setTimeout(tick, tickDelay);
 
           return next;
         });

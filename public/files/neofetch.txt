@@ -1,0 +1,16 @@
+         _nnnn_            <span class="blue-output">visitor</span>@<span class="blue-output">tudes.vercel.app</span>
+        dGGGGMMb           ------------------------
+       @p~qp~~qMb          <span class="blue-output">OS</span>: TudesOS
+       M|@||@) M|          <span class="blue-output">Memory</span>: Enough
+       @,----.JM|          <span class="blue-output">Terminal-Version</span>: 1.0.0
+      JS^\__/  qKL         
+     dZP        qKRb       
+    dZP          qKKb      
+   fZP            SMMb     
+   HZM            MMMM     
+   FqM            MMMM     
+ __| ".        |\dS"qML    
+ |    `.       | `' \Zq    
+_)      \.___.,|     .'    
+\____   )MMMMMP|   .'      
+     `-'       `--'        

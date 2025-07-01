@@ -10,12 +10,25 @@
     "name": "Better Pronote",
     "desc": "Better Pronote is an extension that enhances your Pronote experience with various options. It adds features and customizes your interface.",
     "img": "https://bp.okman65.xyz/assets/logo.png",
-    "status": "In progress"
+    "status": "In progress",
+    "link": "https://bp.okman65.xyz/"
   },
   {
     "name": "Stay Motivated",
     "desc": "Create personalized roadmaps, earn XP, level up, and unlock achievements as you make progress toward your goals.",
     "img": "/images/staym.png",
     "status": "In progress"
+  },
+  {
+    "name": "Portfolio",
+    "desc": "present my projects, about me, blogs and many others...",
+    "img": "/images/portfolio.png",
+    "status": "In progress"
+  },
+  {
+    "name": "Youtube shorts bot",
+    "desc": "Auto generate youtube short with AI",
+    "img": "/images/youtube-shorts.png",
+    "status": "Not started"
   }
 ]

@@ -10,6 +10,10 @@ export const commands: Command = [
     desc: "List available commands",
   },
   {
+    cmd: "Intro",
+    desc: "It's clear, right?",
+  },
+  {
     cmd: "about",
     desc: "About me",
   },
@@ -46,25 +50,14 @@ export const commands: Command = [
   {
     cmd: "neofetch",
     desc: "Print info about this device",
-    available: false,
-  },
-  {
-    cmd: "shutdown",
-    desc: "Shut down the pc",
-    available: false,
-  },
-  {
-    cmd: "cat <filename>",
-    desc: "Display the contents of a file",
-    available: false,
-  },
-  {
-    cmd: "ls",
-    desc: "List files in the current directory",
-    available: false,
   },
   {
     cmd: "clear",
     desc: "Clear the terminal screen",
   },
+  {
+    cmd: "shutdown",
+    desc: "Shut down the pc",
+    available: false,
+  }
 ];

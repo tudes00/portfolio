@@ -1,7 +1,7 @@
 const TermInfo = () => {
   return (
     <div className="terminal-info">
-      <p>tudes@tudesPC:~$ </p>
+      <p>visitor@tudes.vercel.app:~$ </p>
     </div>
   );
 };

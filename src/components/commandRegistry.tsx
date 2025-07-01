@@ -1,6 +1,7 @@
 import help from "./commands/help";
-import CatCommand from "./commands/cat";
+import IntroCommand from "./commands/intro";
 import AboutCommand from "./commands/about";
+import NeoFetchCommand from "./commands/neofecth";
 import skills from "./commands/skills";
 import links from "./commands/links";
 import stats from "./commands/stats";
@@ -13,7 +14,8 @@ export function commandRegistry(
 ): Record<string, (args?: string) => JSX.Element | string> {
   return {
     help,
-    cat: (args?: string) => <CatCommand args={args} onLoadEnd={onLoadEnd} />,
+    intro: () => <IntroCommand onLoadEnd={onLoadEnd} />,
+    neofetch: () => <NeoFetchCommand onLoadEnd={onLoadEnd} />,
     about: () => <AboutCommand onLoadEnd={onLoadEnd} />,
     skills,
     links,

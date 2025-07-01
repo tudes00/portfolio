@@ -1,17 +1,14 @@
 import { JSX, useEffect, useState } from "react";
 
-export default function CatCommand({
-  args,
+export default function IntroCommand({
   onLoadEnd,
 }: {
-  args?: string;
   onLoadEnd?: () => void;
 }): JSX.Element {
   const [fileText, setfileText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (args === "intro.txt") {
       fetch("/files/intro.txt")
         .then((res) => res.text())
         .then((text) => {
@@ -24,14 +21,10 @@ export default function CatCommand({
         .catch(() => {
           setLoading(false);
         });
-    } else {
-      setLoading(false);
-    }
-  }, [args, onLoadEnd]);
+    }, [onLoadEnd]);
 
-  if (!args) return <span>Usage: cat &lt;filename&gt;</span>;
 
-  if (args === "intro.txt" && fileText !== null) {
+  if (fileText !== null) {
     return (
       <div
         className="whitespace-pre-wrap"
@@ -39,9 +32,7 @@ export default function CatCommand({
       />
     );
   }
+  if(!loading) return <span>Error when loading intro file</span>
 
-  if (!loading) {
-    return <span>File not found: {args}</span>;
-  }
-  return <span>Loading {args}...</span>;
+  return <span>Loading...</span>;
 }

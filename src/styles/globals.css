@@ -47,30 +47,10 @@ body {
 .green {
   color: #0b9343;
 }
+.whitespace-pre-wrap span {
+  font-size: inherit !important;
+}
 
-/*
-.terminal-overlay {
-  position: absolute;
-  top: calc(5 * 1.6em); 
-  left: 30ch; 
-  width: 158ch;
-  height: calc(18 * 2.3em);
-  font-family: "Fira Code", monospace;
-  font-size: 16px;
-  line-height: 1.2;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-y: auto;
-  overflow-x: hidden;
-  color: #0b9343;
-  background: transparent;
-  padding-right: 1ch;
-  display: flex;
-  flex-direction: column;
-  scrollbar-width: none;
-
-  */
-  
 .terminal-overlay {
   scroll-behavior: smooth;
   scrollbar-width: none;

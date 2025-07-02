@@ -1,6 +1,8 @@
 import { JSX, useEffect, useState } from "react";
 import Image from "next/image";
 
+//add when click on a project auto enter command : project <name>
+
 interface projectI {
   name: string;
   desc: string;
@@ -85,7 +87,7 @@ export default function ProjectCommand({
             📂 {projects.length} projects found:
           </h1>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mr-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mr-4">
             {projects.map((project, index) => {
               const status = project.status?.toLowerCase();
               const statusStyles =
@@ -98,46 +100,54 @@ export default function ProjectCommand({
               return (
                 <div
                   key={index}
-                  className="relative bg-[#1e1e1e] border border-[#be8d84]/40 hover:border-[#be8d84]/80 rounded-lg p-4 flex gap-4 shadow-md transition-all hover:scale-[1.005]"
+                  className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
+                  style={{ height: "300px" }}
                 >
-                  {project.status && (
-                    <div
-                      className={`absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full font-mono tracking-wide ${statusStyles}`}
-                    >
-                      {project.status}
-                    </div>
-                  )}
+                  <Image
+                    src={project.img}
+                    alt={`Image of ${project.name}`}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    priority
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0), rgba(190, 141, 132, 0.1) 60%, rgba(190, 141, 132, 0.5) 100%)",
+                      backdropFilter: "blur(5px) brightness(90%)",
+                      WebkitBackdropFilter: "blur(5px)  brightness(90%)",
+                    }}
+                  />
 
-                  <div className="w-auto h-40 flex-shrink-0 overflow-hidden rounded-md">
-                    <Image
-                      src={project.img}
-                      alt={`Image of ${project.name}`}
-                      width={500}
-                      height={500}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="flex flex-col justify-between text-sm">
-                    <span className="text-[#be8d84] font-bold text-base mb-1">
-                      {project.name}
-                    </span>
-                    <span className="text-zinc-400 leading-snug line-clamp-3 ml-2">
+                  <div className="absolute inset-0 bg-black/50 bg flex flex-col justify-center p-4 text-center">
+                    <h2 className="font-bold text-3xl">{project.name}</h2>
+                    <p className="mt-2 text-sm line-clamp-3 text-white">
                       {project.desc}
-                    </span>
-                    {project.link ? (
+                    </p>
+                    {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 text-blue-400 hover:text-blue-300  text-sm transition"
+                        className="mt-4 text-blue-400 hover:text-blue-300 text-lg"
                       >
                         🔗 Explore
                       </a>
-                    ) : (
-                      <p></p>
                     )}
                   </div>
+
+                  {project.status && (
+                    <div
+                      className={`absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full font-mono tracking-wide ${
+                        statusStyles
+                      }`}
+                    >
+                      {project.status}
+                    </div>
+                  )}
                 </div>
               );
             })}

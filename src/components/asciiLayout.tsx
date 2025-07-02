@@ -69,19 +69,19 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   if (!isReady || fontSize === null) return null;
 
   return (
-    <div
-      className="ascii-wrapper"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-  width: "calc(100vw - 2rem)",
-  height: "calc(100vh - 2rem)",
-  margin: "1rem",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+<div
+  className="ascii-wrapper"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+    position: "relative",
+    padding: "0.5rem", // si tu veux un espace intérieur
+  }}
+>
       <pre
         className="ascii-monitor text-center relative"
         style={{

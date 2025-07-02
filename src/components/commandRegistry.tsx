@@ -10,6 +10,7 @@ import ProjectCommand from "./commands/project";
 import { JSX } from "react";
 
 export function commandRegistry(
+  setInputVal: React.Dispatch<React.SetStateAction<string>>,
   onLoadEnd?: () => void,
 ): Record<string, (args?: string) => JSX.Element | string> {
   return {
@@ -21,7 +22,11 @@ export function commandRegistry(
     links,
     stats,
     project: (args?: string) => (
-      <ProjectCommand args={args} onLoadEnd={onLoadEnd} />
+      <ProjectCommand
+        args={args}
+        onLoadEnd={onLoadEnd}
+        setInputVal={setInputVal}
+      />
     ),
   };
 }

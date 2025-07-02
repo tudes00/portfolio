@@ -1,8 +1,6 @@
 import { JSX, useEffect, useState } from "react";
 import Image from "next/image";
 
-//add when click on a project auto enter command : project <name>
-
 interface projectI {
   name: string;
   desc: string;
@@ -14,9 +12,11 @@ interface projectI {
 export default function ProjectCommand({
   args,
   onLoadEnd,
+  setInputVal,
 }: {
   args?: string;
   onLoadEnd?: () => void;
+  setInputVal: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element {
   const [fileText, setfileText] = useState<string | null>(null);
   const [projects, setProjects] = useState<projectI[]>([]);
@@ -100,6 +100,7 @@ export default function ProjectCommand({
               return (
                 <div
                   key={index}
+                  onClick={() => setInputVal(`project ${project.name}`)}
                   className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
                   style={{ height: "300px" }}
                 >

@@ -27,8 +27,8 @@ export default function Terminal() {
   }, []);
 
   const commandRegistry = useMemo(
-    () => getCommandRegistry(scrollToBottom),
-    [scrollToBottom],
+    () => getCommandRegistry(setInputVal, scrollToBottom),
+    [scrollToBottom, setInputVal],
   );
 
   useEffect(() => {

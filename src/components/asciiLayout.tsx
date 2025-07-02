@@ -12,7 +12,6 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   const [ascii, setAscii] = useState<string>("");
   const [asciiCache, setAsciiCache] = useState<{ [key: string]: string }>({});
 
-
   useEffect(() => {
     if (window.matchMedia("(max-width: 650px)").matches) {
       setDevice("phone");
@@ -24,24 +23,24 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   }, []);
 
   useEffect(() => {
-  async function loadAscii() {
-    if (!device) return;
-    if (asciiCache[device]) {
-      setAscii(asciiCache[device]);
+    async function loadAscii() {
+      if (!device) return;
+      if (asciiCache[device]) {
+        setAscii(asciiCache[device]);
+        setIsReady(true);
+        return;
+      }
+      const response = await fetch(`/ascii/${device}.txt`);
+      const text = await response.text();
+
+      setAsciiCache((prev) => ({ ...prev, [device]: text }));
+      setAscii(text);
       setIsReady(true);
-      return;
     }
-    const response = await fetch(`/ascii/${device}.txt`);
-    const text = await response.text();
 
-    setAsciiCache((prev) => ({ ...prev, [device]: text }));
-    setAscii(text);
-    setIsReady(true);
-  }
-
-  setIsReady(false);
-  loadAscii();
-}, [device, asciiCache]);
+    setIsReady(false);
+    loadAscii();
+  }, [device, asciiCache]);
 
   useEffect(() => {
     if (!ascii) return;
@@ -80,18 +79,18 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
 
   return (
     <div
-  className="ascii-wrapper"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100dvw",
-    height: "100dvh",
-    padding: "0.5rem",
-    overflow: "hidden",
-    position: "relative",
-  }}
->
+      className="ascii-wrapper"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100dvw",
+        height: "100dvh",
+        padding: "0.5rem",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
       <pre
         className="ascii-monitor text-center relative"
         style={{

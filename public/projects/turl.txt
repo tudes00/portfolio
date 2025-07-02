@@ -3,7 +3,7 @@ Turl is a free and secure URL shortener that help you manage your URLs and track
 
 <img style="width: 800px" alt="Turl" src="/images/turl.png">
 <span style="font-size: 1rem; font-weight: bold;">Main Features:</span><ul><li> ·✅ Shorten long URLs into clean, shareable links</li><li> ·📊 Real-time analytics with click tracking and locations</li><li> ·🔐 Password protection for private links</li><li> ·👤 User accounts with Google login</li><li> ·📩 Webhook notifications (e.g., to Discord)</li></ul>
-<img style="width: 600px" alt="TurlDashboard" src="/images/turl-dash.png">
+<img style="width: 800px" alt="TurlDashboard" src="/images/turl-dash.png">
 <span style="font-size: 1rem; font-weight: bold;">Tech Stack:</span><ul><li><strong> ·🙃frontend:</strong> Angular, Tailwind CSS, Chart.js</li><li><strong> ·🫥Backend:</strong> Express.js, Turso, bcrypt</li><li><strong> ·🤖Auth:</strong> Google OAuth</li><li><strong> ·👽Extras:</strong> express-rate-limit, cookie-parser</li></ul>
 <span style="font-size: 1rem; font-weight: bold;">What I Learned:</span><ul><li> ·📚 Built a secure API and improved a little my backend skills</li><li> ·⚡ Learned how to use Turso </li><li> ·🎨 Focused on creating a clean, intuitive UI</li></ul>
 <span style="font-size: 1rem; font-weight: bold;">TODO LIST:</span><ul><li> ·🖼️ make a tracking pixel maker</li></ul>

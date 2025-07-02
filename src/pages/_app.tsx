@@ -8,8 +8,14 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Tudes Portfolio</title>
         <meta property="og:title" content="Tudes Portfolio" />
-        <meta property="og:description" content="This is my personal portfolio" />
-        <meta property="og:image" content="https://tudes.vercel.app/images/pp.png" />
+        <meta
+          property="og:description"
+          content="This is my personal portfolio"
+        />
+        <meta
+          property="og:image"
+          content="https://tudes.vercel.app/images/pp.png"
+        />
         <meta property="og:url" content="https://tudes.vercel.app" />
         <meta property="og:type" content="website" />
         <meta

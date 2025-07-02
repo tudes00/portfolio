@@ -48,6 +48,7 @@ body {
   color: #0b9343;
 }
 
+/*
 .terminal-overlay {
   position: absolute;
   top: calc(5 * 1.6em); 
@@ -68,11 +69,13 @@ body {
   flex-direction: column;
   scrollbar-width: none;
 
-  overflow-y: auto;
+  */
+  
+.terminal-overlay {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
-
-.terminal-overlay::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 

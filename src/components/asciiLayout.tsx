@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type AsciiLayoutProps = {
   children: React.ReactNode;
@@ -6,7 +6,10 @@ type AsciiLayoutProps = {
 
 export default function AsciiLayout({ children }: AsciiLayoutProps) {
   const [ascii, setAscii] = useState<string>("");
-  const [fontSize, setFontSize] = useState<number>(16);
+  const [fontSize, setFontSize] = useState<number | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const asciiRef = useRef<HTMLPreElement>(null);
+  const [monitorSize, setMonitorSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     async function loadAscii() {
@@ -16,28 +19,39 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
     }
 
     loadAscii();
+  }, []);
 
-    const onResize = () => {
-      if (ascii) {
-         const lines = ascii.split("\n").length;
-      const maxLineLength = Math.max(...ascii.split("\n").map(line => line.length));
+  useEffect(() => {
+    if (!ascii) return;
+
+    const computeFontSize = () => {
+      const lines = ascii.split("\n").length;
+      const maxLineLength = Math.max(...ascii.split("\n").map((line) => line.length));
 
       const screenHeight = window.innerHeight;
       const screenWidth = window.innerWidth;
 
       const heightBased = Math.floor(screenHeight / lines);
       const CHAR_WIDTH_RATIO = 0.55;
-
-        const widthBased = Math.floor(screenWidth / (maxLineLength * CHAR_WIDTH_RATIO));
+      const widthBased = Math.floor(screenWidth / (maxLineLength * CHAR_WIDTH_RATIO));
       const computedFontSize = Math.min(heightBased, widthBased);
-        setFontSize(computedFontSize);
-      }
+      setFontSize(computedFontSize);
+      setIsReady(true);
     };
-    onResize();
 
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    computeFontSize();
+    window.addEventListener("resize", computeFontSize);
+    return () => window.removeEventListener("resize", computeFontSize);
   }, [ascii]);
+
+  useEffect(() => {
+    if (!isReady || !asciiRef.current) return;
+
+    const rect = asciiRef.current.getBoundingClientRect();
+    setMonitorSize({ width: rect.width, height: rect.height });
+  }, [isReady, fontSize]);
+
+  if (!isReady || fontSize === null) return null;
 
   return (
     <div
@@ -53,6 +67,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
       }}
     >
       <pre
+        ref={asciiRef}
         className="ascii-monitor select-none text-center"
         style={{
           margin: 0,
@@ -62,11 +77,35 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
           whiteSpace: "pre",
           lineHeight: 1,
           textAlign: "center",
+          position: "relative",
         }}
       >
         {ascii}
+
+        <div
+  className="ascii-content absolute font-mono text-green-700"
+  style={{
+    position: "absolute",
+    top: "13%",
+    left: "6%",
+    width: "90%",
+    height: "73%",
+    fontSize: fontSize / 1.5,
+    lineHeight: 1.2,
+    background: "transparent",
+    overflowY: "auto",
+    padding: "1rem",
+    textAlign: "left",
+    display: "flex",
+    flexDirection: "column",
+    whiteSpace: "pre-wrap",
+    wordBreak: "break-word",
+  }}
+>
+  {children}
+</div>
+
       </pre>
-      <div>{children}</div>
     </div>
   );
 }

@@ -75,11 +75,11 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "100vw",
-    height: "100vh",
+  width: "calc(100dvw - 1rem)",
+  height: "calc(100dvh - 1rem)",
+  margin: "0.5rem",
     overflow: "hidden",
     position: "relative",
-    padding: "0.5rem", // si tu veux un espace intérieur
   }}
 >
       <pre

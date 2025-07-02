@@ -5,18 +5,22 @@ export default function IntroCommand({
 }: {
   onLoadEnd?: () => void;
 }): JSX.Element {
-  const [fileText, setfileText] = useState<string | null>(null);
+  const [fileText, setFileText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [asciiSize, setAsciiSize] = useState<string>("intro");
+  const [asciiSize, setAsciiSize] = useState<string | null>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 650px)").matches) {
-        setAsciiSize("introPhone");
-    }
+    const isPhone = window.matchMedia("(max-width: 650px)").matches;
+    setAsciiSize(isPhone ? "introPhone" : "intro");
+  }, []);
+
+  useEffect(() => {
+    if (!asciiSize) return;
+
     fetch(`/files/${asciiSize}.txt`)
       .then((res) => res.text())
       .then((text) => {
-        setfileText(text);
+        setFileText(text);
         setLoading(false);
         setTimeout(() => {
           onLoadEnd?.();
@@ -25,7 +29,7 @@ export default function IntroCommand({
       .catch(() => {
         setLoading(false);
       });
-  }, [onLoadEnd, asciiSize]);
+  }, [asciiSize, onLoadEnd]);
 
   if (fileText !== null) {
     return (
@@ -35,6 +39,7 @@ export default function IntroCommand({
       />
     );
   }
+
   if (!loading) return <span>Error when loading intro file</span>;
 
   return <span>Loading...</span>;

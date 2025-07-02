@@ -32,13 +32,6 @@ body {
   height: 100%;
 }
 
-.ascii-wrapper {
-  position: relative;
-  font-family: monospace;
-  line-height: 1.2;
-  white-space: pre;
-}
-
 .blue-output {
   color: #80cfd2;
 }

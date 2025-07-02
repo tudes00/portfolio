@@ -81,7 +81,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   return (
     <div
   className="ascii-wrapper"
-  style={{
+  /*style={{
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -90,8 +90,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
     padding: "0.5rem",
     overflow: "hidden",
     position: "relative",
-    touchAction: "manipulation",
-  }}
+  }}*/
 >
       <pre
         className="ascii-monitor text-center relative"

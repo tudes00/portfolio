@@ -8,7 +8,7 @@ export default function Home() {
   const [bootFinished, setBootFinished] = useState(
     process.env.NODE_ENV === "development",
   );
-
+  
   return (
     <AsciiLayout>
       <Analytics />

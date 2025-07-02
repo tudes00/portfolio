@@ -122,7 +122,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
                   : "87%",
             fontSize:
               fontSize /
-              (device === "computer" ? 1.7 : device === "tablet" ? 0.95 : 1.33),
+              (device === "computer" ? 1.7 : device === "tablet" ? 0.95 : 1.5),
             lineHeight: 1.2,
             overflowY: "auto",
             padding: "1rem",

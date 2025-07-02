@@ -7,9 +7,13 @@ export default function IntroCommand({
 }): JSX.Element {
   const [fileText, setfileText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [asciiSize, setAsciiSize] = useState<string>("intro");
 
   useEffect(() => {
-    fetch("/files/intro.txt")
+    if (window.matchMedia("(max-width: 650px)").matches) {
+        setAsciiSize("introPhone");
+    }
+    fetch(`/files/${asciiSize}.txt`)
       .then((res) => res.text())
       .then((text) => {
         setfileText(text);
@@ -21,7 +25,7 @@ export default function IntroCommand({
       .catch(() => {
         setLoading(false);
       });
-  }, [onLoadEnd]);
+  }, [onLoadEnd, asciiSize]);
 
   if (fileText !== null) {
     return (

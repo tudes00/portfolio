@@ -97,10 +97,10 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
         <div
           className="ascii-content absolute font-mono text-green-700"
           style={{
-            top: "13%",
-            left: "5%",
-            width: "89%",
-            height: "73%",
+            top:    (device === "computer" ? "13%" : (device === "tablet" ? "7.5%" : "8%")),
+            left:    (device === "computer" ? "5%" : (device === "tablet" ? "5.5%" : "5%")),
+            width:  (device === "computer" ? "89%" : (device === "tablet" ? "90%" : "91%")),
+            height: (device === "computer" ? "73%" : (device === "tablet" ? "87%" : "87%")),
             fontSize: fontSize / (device === "computer" ? 1.7 : (device === "tablet" ? 0.95 : 1.2)),
             lineHeight: 1.2,
             overflowY: "auto",

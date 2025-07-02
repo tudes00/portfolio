@@ -1,0 +1,8 @@
+<span id="asciiIntro" style="font-size: 0.5rem;"> ______ 
+/\__  _\
+\/_/\ \/
+   \ \_\
+    \/_/ © 2025
+</span>
+Hello, welcome to my portfolio!                 
+Use '<span class="blue-output">help</span>' to get started. 

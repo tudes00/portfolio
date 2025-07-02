@@ -50,7 +50,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
       const screenWidth = window.innerWidth;
 
       const heightBased = Math.floor(screenHeight / lines);
-      const CHAR_WIDTH_RATIO = 0.55;
+      const CHAR_WIDTH_RATIO = 0.58;
       const widthBased = Math.floor(
         screenWidth / (maxLineLength * CHAR_WIDTH_RATIO),
       );
@@ -122,7 +122,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
                   : "87%",
             fontSize:
               fontSize /
-              (device === "computer" ? 1.7 : device === "tablet" ? 0.95 : 1.4),
+              (device === "computer" ? 1.7 : device === "tablet" ? 0.95 : 1.33),
             lineHeight: 1.2,
             overflowY: "auto",
             padding: "1rem",

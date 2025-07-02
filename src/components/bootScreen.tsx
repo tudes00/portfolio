@@ -25,32 +25,32 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
     loadAscii();
   }, []);
 
- useEffect(() => {
-  const startDelay = 1500;
-  const timeoutId = setTimeout(() => {
-    console.log("starting");
-    setIsLoadingStarted(true);
-  }, startDelay);
+  useEffect(() => {
+    const startDelay = 1500;
+    const timeoutId = setTimeout(() => {
+      console.log("starting");
+      setIsLoadingStarted(true);
+    }, startDelay);
 
-  return () => clearTimeout(timeoutId);
-}, []);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
-useEffect(() => {
-  if (isLoadingStarted && progress < 100) {
-    const tickDelay = 100;
-    const timeout = setTimeout(() => {
-      setProgress((prev) => {
-        const next = Math.min(prev + getRandomInt(1, 5), 100);
-        return next;
-      });
-    }, tickDelay);
+  useEffect(() => {
+    if (isLoadingStarted && progress < 100) {
+      const tickDelay = 100;
+      const timeout = setTimeout(() => {
+        setProgress((prev) => {
+          const next = Math.min(prev + getRandomInt(1, 5), 100);
+          return next;
+        });
+      }, tickDelay);
 
-    return () => clearTimeout(timeout);
-  } else if (progress >= 100) {
-    setTimeout(onBootEnd, 20);
-    console.log("finish");
-  }
-}, [progress, isLoadingStarted, onBootEnd]);
+      return () => clearTimeout(timeout);
+    } else if (progress >= 100) {
+      setTimeout(onBootEnd, 20);
+      console.log("finish");
+    }
+  }, [progress, isLoadingStarted, onBootEnd]);
 
   const filledLength = Math.round((progress / 100) * totalLength);
   const bar = "█".repeat(filledLength) + "░".repeat(totalLength - filledLength);

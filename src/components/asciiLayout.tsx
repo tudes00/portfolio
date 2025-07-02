@@ -10,15 +10,13 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   const [isReady, setIsReady] = useState(false);
   const [device, setDevice] = useState<string | null>("phone");
 
-  
-
   useEffect(() => {
     if (window.matchMedia("(max-width: 650px)").matches) {
-        setDevice("phone");
+      setDevice("phone");
     } else if (window.matchMedia("(max-width: 1150px)").matches) {
-        setDevice("tablet");
+      setDevice("tablet");
     } else {
-        setDevice("computer");
+      setDevice("computer");
     }
   }, []);
 
@@ -36,13 +34,13 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   useEffect(() => {
     if (!ascii) return;
     const computeFontSize = () => {
-        if (window.matchMedia("(max-width: 650px)").matches) {
+      if (window.matchMedia("(max-width: 650px)").matches) {
         setDevice("phone");
-    } else if (window.matchMedia("(max-width: 1230px)").matches) {
+      } else if (window.matchMedia("(max-width: 1230px)").matches) {
         setDevice("tablet");
-    } else {
+      } else {
         setDevice("computer");
-    }
+      }
       const lines = ascii.split("\n").length;
       const maxLineLength = Math.max(
         ...ascii.split("\n").map((line) => line.length),
@@ -69,19 +67,19 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
   if (!isReady || fontSize === null) return null;
 
   return (
-<div
-  className="ascii-wrapper"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  width: "calc(100dvw - 1rem)",
-  height: "calc(100dvh - 1rem)",
-  margin: "0.5rem",
-    overflow: "hidden",
-    position: "relative",
-  }}
->
+    <div
+      className="ascii-wrapper"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "calc(100dvw - 1rem)",
+        height: "calc(100dvh - 1rem)",
+        margin: "0.5rem",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
       <pre
         className="ascii-monitor text-center relative"
         style={{
@@ -96,13 +94,35 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
         <pre className=" select-none">{ascii}</pre>
 
         <div
-          className="ascii-content absolute font-mono text-green-700"
+          className="ascii-content absolute font-mono text-green-700" //absolute
           style={{
-            top:    (device === "computer" ? "13%" : (device === "tablet" ? "7.5%" : "8%")),
-            left:    (device === "computer" ? "5%" : (device === "tablet" ? "5.5%" : "5%")),
-            width:  (device === "computer" ? "89%" : (device === "tablet" ? "90%" : "91%")),
-            height: (device === "computer" ? "73%" : (device === "tablet" ? "87%" : "87%")),
-            fontSize: fontSize / (device === "computer" ? 1.7 : (device === "tablet" ? 0.95 : 1.4)),
+            top:
+              device === "computer"
+                ? "13%"
+                : device === "tablet"
+                  ? "7.5%"
+                  : "8%",
+            left:
+              device === "computer"
+                ? "5%"
+                : device === "tablet"
+                  ? "5.5%"
+                  : "5%",
+            width:
+              device === "computer"
+                ? "89%"
+                : device === "tablet"
+                  ? "90%"
+                  : "91%",
+            height:
+              device === "computer"
+                ? "73%"
+                : device === "tablet"
+                  ? "87%"
+                  : "87%",
+            fontSize:
+              fontSize /
+              (device === "computer" ? 1.7 : device === "tablet" ? 0.95 : 1.4),
             lineHeight: 1.2,
             overflowY: "auto",
             padding: "1rem",

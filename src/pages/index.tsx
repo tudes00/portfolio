@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const [bootFinished, setBootFinished] = useState(
-    process.env.NODE_ENV === "development",
+    process.env.NODE_ENV === "test",
   );
   
   return (

@@ -32,7 +32,7 @@ export default function Terminal() {
   );
 
   useEffect(() => {
-    const cmd = "intro";
+    const cmd = "help";
     const [cmdName, ...args] = cmd.split(" ");
     const output = commandRegistry[cmdName]?.(args.join(" "));
 

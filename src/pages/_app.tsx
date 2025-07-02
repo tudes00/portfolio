@@ -3,18 +3,20 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
- return (
+  return (
     <>
       <Head>
         <title>Tudes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta charSet="UTF-8"/>
-        <meta name="description" content="Tudes Portfolio"/>
-        <meta name="keywords" content="HTML, CSS, JavaScript"/>
-        <meta name="author" content="Tudes"/>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta charSet="UTF-8" />
+        <meta name="description" content="Tudes Portfolio" />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="author" content="Tudes" />
       </Head>
       <Component {...pageProps} />
     </>
-  )
-
+  );
 }

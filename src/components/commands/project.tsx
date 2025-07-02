@@ -6,6 +6,7 @@ interface projectI {
   desc: string;
   img: string;
   link: string;
+  github: string;
   status: string;
 }
 
@@ -95,7 +96,11 @@ export default function ProjectCommand({
                   ? "bg-green-600 text-green-100"
                   : status === "in progress"
                     ? "bg-yellow-600 text-yellow-100"
-                    : "bg-gray-700 text-gray-300";
+                    : status === "shelved"
+                        ? "bg-purple-400 text-purple-100"
+                        : status === "abandoned"
+                            ? "bg-red-400 text-red-100"
+                            : "bg-gray-700 text-gray-300";
 
               return (
                 <div
@@ -104,14 +109,17 @@ export default function ProjectCommand({
                   className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
                   style={{ height: "300px" }}
                 >
-                  <Image
-                    src={project.img}
-                    alt={`Image of ${project.name}`}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    priority
-                  />
+                   <Image
+    src={project.img}
+    alt={`Image of ${project.name}`}
+    fill
+    priority
+    sizes="100%"
+    style={{
+      objectFit: 'cover',
+      objectPosition: 'center',
+    }}
+  />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"
@@ -125,19 +133,31 @@ export default function ProjectCommand({
 
                   <div className="absolute inset-0 bg-black/50 bg flex flex-col justify-center p-4 text-center">
                     <h2 className="font-bold text-3xl">{project.name}</h2>
-                    <p className="mt-2 text-sm line-clamp-3 text-white">
+                    <p className="mt-2 text-base text-white">
                       {project.desc}
                     </p>
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 text-blue-400 hover:text-blue-300 text-lg"
-                      >
-                        🔗 Explore
-                      </a>
-                    )}
+                    <div className="mt-4 text-blue-400  text-lg transition-all">
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mr-2 hover:text-blue-300"
+                        >
+                          🔗 Explore
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-blue-300"
+                        >
+                            ⚡ Github
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   {project.status && (

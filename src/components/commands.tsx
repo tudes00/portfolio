@@ -10,7 +10,7 @@ export const commands: Command = [
     desc: "List available commands",
   },
   {
-    cmd: "Intro",
+    cmd: "intro",
     desc: "It's clear, right?",
   },
   {

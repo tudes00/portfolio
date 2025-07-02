@@ -4,7 +4,16 @@
     "desc": "Manage your links easily with Turl, an advanced and open-source URL shortener packed with powerful features! 🚀",
     "img": "/images/eturl.png",
     "link": "https://eturl.vercel.app/s/turl",
-    "status": "done"
+    "github": "https://github.com/tudes00/Turl",
+    "status": "Done"
+  },
+  {
+    "name": "Albion Online Market Prices",
+    "desc": "a site to display the Albion Online market (not optimized at all, it's a dead project)",
+    "img": "/images/aomp.png",
+    "link": "https:/aomp.vercel.app",
+    "github": "https://github.com/tudes00/portfolio",
+    "status": "Done"
   },
   {
     "name": "Better Pronote",
@@ -23,12 +32,26 @@
     "name": "Portfolio",
     "desc": "present my projects, about me, blogs and many others...",
     "img": "/images/portfolio.png",
+    "github": "https://github.com/tudes00/portfolio",
     "status": "In progress"
+  },
+  {
+    "name": "VulnHunter",
+    "desc": "VulnHunter, best tool for automating vulnerability scanning and penetration testing! | There is not much functionality at the moment, maybe I will take over the project later",
+    "img": "/images/vulnhunter.png",
+    "status": "Shelved",
+    "github": "https://github.com/tudes00/VulnHunter"
   },
   {
     "name": "Youtube shorts bot",
     "desc": "Auto generate youtube short with AI",
     "img": "/images/youtube-shorts.png",
     "status": "Not started"
+  },
+  {
+    "name": "Hack The Bot",
+    "desc": "Hack The Bot was a beginner-friendly Discord project inspired by Hack The Box. It featured interactive cybersecurity challenges through a custom bot. Although the project showed promise, it was eventually discontinued due to lack of time and resources.",
+    "img": "/images/HTB.png",
+    "status": "abandoned"
   }
 ]

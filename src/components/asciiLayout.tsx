@@ -70,7 +70,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
 
   return (
     <div
-      className="ascii-wrapper"
+      className="ascii-wrapper p-2"
       style={{
         display: "flex",
         alignItems: "center",

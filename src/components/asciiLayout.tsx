@@ -5,10 +5,13 @@ type AsciiLayoutProps = {
 };
 
 export default function AsciiLayout({ children }: AsciiLayoutProps) {
-  const [ascii, setAscii] = useState<string>("");
   const [fontSize, setFontSize] = useState<number | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [device, setDevice] = useState<string | null>("phone");
+
+  const [ascii, setAscii] = useState<string>("");
+  const [asciiCache, setAsciiCache] = useState<{ [key: string]: string }>({});
+
 
   useEffect(() => {
     if (window.matchMedia("(max-width: 650px)").matches) {
@@ -20,16 +23,25 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
     }
   }, []);
 
-  //prbl sa load a chaque fois l'ascii lors du resize utilise network bq
-
   useEffect(() => {
-    async function loadAscii() {
-      const response = await fetch(`/ascii/${device}.txt`);
-      const text = await response.text();
-      setAscii(text);
+  async function loadAscii() {
+    if (!device) return;
+    if (asciiCache[device]) {
+      setAscii(asciiCache[device]);
+      setIsReady(true);
+      return;
     }
-    loadAscii();
-  }, [device]);
+    const response = await fetch(`/ascii/${device}.txt`);
+    const text = await response.text();
+
+    setAsciiCache((prev) => ({ ...prev, [device]: text }));
+    setAscii(text);
+    setIsReady(true);
+  }
+
+  setIsReady(false);
+  loadAscii();
+}, [device, asciiCache]);
 
   useEffect(() => {
     if (!ascii) return;

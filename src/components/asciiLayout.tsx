@@ -93,7 +93,7 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
           lineHeight: 1,
         }}
       >
-        <div className=" select-none">{ascii}</div>
+        <pre className=" select-none">{ascii}</pre>
 
         <div
           className="ascii-content absolute font-mono text-green-700"

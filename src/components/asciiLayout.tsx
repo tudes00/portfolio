@@ -80,18 +80,19 @@ export default function AsciiLayout({ children }: AsciiLayoutProps) {
 
   return (
     <div
-      className="ascii-wrapper"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "calc(100dvw - 1rem)",
-        height: "calc(100dvh - 1rem)",
-        margin: "0.5rem",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+  className="ascii-wrapper"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100dvw",
+    height: "100dvh",
+    padding: "0.5rem",
+    overflow: "hidden",
+    position: "relative",
+    touchAction: "manipulation",
+  }}
+>
       <pre
         className="ascii-monitor text-center relative"
         style={{

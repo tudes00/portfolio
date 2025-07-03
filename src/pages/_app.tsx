@@ -6,6 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="837c108a-c782-49da-92d7-88eb01da029b"></script>
         <title>Tudes Portfolio</title>
         <meta property="og:title" content="Tudes Portfolio" />
         <meta

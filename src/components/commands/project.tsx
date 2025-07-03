@@ -1,6 +1,16 @@
 import { JSX, useEffect, useState } from "react";
 import Image from "next/image";
+import { iconMap } from "./iconMap";
 
+function getCategoryIcon(name: string) {
+  const entry = iconMap[name];
+  if (!entry) return null;
+
+  const Icon = entry.icon;
+  const color = entry.color;
+
+  return <Icon color={color} />;
+}
 interface projectI {
   name: string;
   desc: string;
@@ -8,6 +18,7 @@ interface projectI {
   link: string;
   github: string;
   status: string;
+  categories: string[];
 }
 
 export default function ProjectCommand({
@@ -97,10 +108,10 @@ export default function ProjectCommand({
                   : status === "in progress"
                     ? "bg-yellow-600 text-yellow-100"
                     : status === "shelved"
-                        ? "bg-purple-400 text-purple-100"
-                        : status === "abandoned"
-                            ? "bg-red-400 text-red-100"
-                            : "bg-gray-700 text-gray-300";
+                      ? "bg-purple-400 text-purple-100"
+                      : status === "abandoned"
+                        ? "bg-red-400 text-red-100"
+                        : "bg-gray-700 text-gray-300";
 
               return (
                 <div
@@ -109,17 +120,17 @@ export default function ProjectCommand({
                   className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
                   style={{ height: "300px" }}
                 >
-                   <Image
-    src={project.img}
-    alt={`Image of ${project.name}`}
-    fill
-    priority
-    sizes="100%"
-    style={{
-      objectFit: 'cover',
-      objectPosition: 'center',
-    }}
-  />
+                  <Image
+                    src={project.img}
+                    alt={`Image of ${project.name}`}
+                    fill
+                    priority
+                    sizes="100%"
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"
@@ -131,12 +142,24 @@ export default function ProjectCommand({
                     }}
                   />
 
-                  <div className="absolute inset-0 bg-black/50 bg flex flex-col justify-center p-4 text-center">
-                    <h2 className="font-bold text-3xl">{project.name}</h2>
-                    <p className="mt-2 text-base text-white">
-                      {project.desc}
-                    </p>
-                    <div className="mt-4 text-blue-400  text-lg transition-all">
+                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center p-4 text-center">
+                    <h2 className="font-bold text-3xl text-white">
+                      {project.name}
+                    </h2>
+                    <p className="mt-2 text-base text-white">{project.desc}</p>
+
+                    <div className="mt-2 flex flex-wrap justify-center gap-2">
+                      {project.categories.map((category) => (
+                        <span
+                          key={category}
+                          className="flex items-center gap-1 text-sm bg-white/10 text-white px-2 py-1 rounded"
+                        >
+                          {getCategoryIcon(category)} {category}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 text-blue-400 text-lg transition-all">
                       {project.link && (
                         <a
                           href={project.link}
@@ -154,7 +177,7 @@ export default function ProjectCommand({
                           rel="noopener noreferrer"
                           className="hover:text-blue-300"
                         >
-                            ⚡ Github
+                          ⚡ Github
                         </a>
                       )}
                     </div>

@@ -6,7 +6,8 @@
     "link": "https://eturl.vercel.app/s/turl",
     "github": "https://github.com/tudes00/Turl",
     "status": "Done",
-    "categories": ["Web", "TypeScript", "Productivity", "Open Source"]
+    "categories": ["Web", "TypeScript", "Productivity", "Open Source"],
+    "date": "2025-02-25"
   },
   {
     "name": "Albion Online Market Prices",
@@ -21,7 +22,8 @@
       "Data Visualization",
       "Scraper",
       "Open Source"
-    ]
+    ],
+    "date": "2024-08-29"
   },
   {
     "name": "Better Pronote",

@@ -1,6 +1,7 @@
 import { JSX, useEffect, useState } from "react";
 import Image from "next/image";
 import { iconMap } from "./iconMap";
+import { LuClock2 } from "react-icons/lu";
 
 function getCategoryIcon(name: string) {
   const entry = iconMap[name];
@@ -19,6 +20,7 @@ interface projectI {
   github: string;
   status: string;
   categories: string[];
+  date: string;
 }
 
 export default function ProjectCommand({
@@ -99,7 +101,7 @@ export default function ProjectCommand({
             📂 {projects.length} projects found:
           </h1>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mr-4">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mr-4">
             {projects.map((project, index) => {
               const status = project.status?.toLowerCase();
               const statusStyles =
@@ -118,7 +120,7 @@ export default function ProjectCommand({
                   key={index}
                   onClick={() => setInputVal(`project ${project.name}`)}
                   className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
-                  style={{ height: "300px" }}
+                  style={{ height: "400px" }}
                 >
                   <Image
                     src={project.img}
@@ -131,6 +133,7 @@ export default function ProjectCommand({
                       objectPosition: "center",
                     }}
                   />
+
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"
@@ -141,6 +144,16 @@ export default function ProjectCommand({
                       WebkitBackdropFilter: "blur(5px)  brightness(90%)",
                     }}
                   />
+
+                  <div className="flex justify-end mt-3 mr-3 relative z-50">
+                    {project.status && (
+                      <span
+                        className={`inline-block px-2 py-0.5 rounded-full font-mono tracking-wide ${statusStyles}`}
+                      >
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
 
                   <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center p-4 text-center">
                     <h2 className="font-bold text-3xl text-white">
@@ -167,7 +180,7 @@ export default function ProjectCommand({
                           rel="noopener noreferrer"
                           className="mr-2 hover:text-blue-300"
                         >
-                          🔗 Explore
+                          🔗Explore
                         </a>
                       )}
                       {project.github && (
@@ -177,19 +190,17 @@ export default function ProjectCommand({
                           rel="noopener noreferrer"
                           className="hover:text-blue-300"
                         >
-                          ⚡ Github
+                          ⚡Github
                         </a>
                       )}
                     </div>
                   </div>
 
-                  {project.status && (
-                    <div
-                      className={`absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full font-mono tracking-wide ${
-                        statusStyles
-                      }`}
-                    >
-                      {project.status}
+                  {project.date && (
+                    <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-full font-mono tracking-wide bg-gray-200/10 flex flex-row gap-1  items-center">
+                      <LuClock2 size={20} />
+
+                      {project.date}
                     </div>
                   )}
                 </div>

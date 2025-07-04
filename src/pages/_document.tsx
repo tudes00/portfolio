@@ -5,6 +5,11 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body className="antialiased">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: "<!-- orangutan ❤️ --> <!-- I wonder what this password could be used for....🤔 -->",
+          }}
+        />
         <Main />
         <NextScript />
       </body>

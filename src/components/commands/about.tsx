@@ -1,4 +1,5 @@
 import { JSX, useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
 export default function AboutCommand({
   onLoadEnd,
@@ -22,11 +23,11 @@ export default function AboutCommand({
   }, [onLoadEnd]);
 
   if (fileText !== null) {
-    console.log("About file loaded:", fileText);
+     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
     return (
       <div
         className="terminal-html"
-        dangerouslySetInnerHTML={{ __html: fileText }}
+        dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }}
       />
     );
   }

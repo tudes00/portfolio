@@ -65,11 +65,6 @@ export default function Terminal() {
       return "";
     }
 
-    if (cmd === "shutdown") {
-      console.log(history);
-      return "Shutting down...";
-    }
-
     const [cmdName, ...args] = cmd.split(" ");
     const commandFn = commandRegistry[cmdName];
     if (commandFn) return commandFn(args.join(" "));
@@ -100,7 +95,6 @@ export default function Terminal() {
         inputHistory.length > 0 &&
         inputValueHistoryNbr < inputHistory.length
       ) {
-        console.log("UP");
         const newNbr = inputValueHistoryNbr + 1;
         const lastCommand = inputHistory[inputHistory.length - newNbr];
         if (lastCommand) {
@@ -112,7 +106,6 @@ export default function Terminal() {
     if (event.key === "ArrowDown") {
       event.preventDefault();
       if (inputValueHistoryNbr > 1) {
-        console.log("DOWN");
         const newNbr = inputValueHistoryNbr - 1;
         const lastCommand = inputHistory[inputHistory.length - newNbr];
         if (lastCommand) {

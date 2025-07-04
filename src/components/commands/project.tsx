@@ -7,6 +7,8 @@ import { IoHourglassOutline } from "react-icons/io5";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TbHourglassEmpty } from "react-icons/tb";
 
+import DOMPurify from "dompurify";
+
 function getCategoryIcon(name: string) {
   const entry = iconMap[name];
   if (!entry) return null;
@@ -237,7 +239,8 @@ export default function ProjectCommand({
   }
 
   if (fileText !== null) {
-    return <div className="" dangerouslySetInnerHTML={{ __html: fileText }} />;
+     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
+    return <div className="" dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }} />;
   }
 
   if (!loading) {

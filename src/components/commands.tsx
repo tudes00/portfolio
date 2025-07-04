@@ -56,13 +56,7 @@ export const commands: Command = [
     desc: "Clear the terminal screen",
   },
   {
-    cmd: "shutdown",
-    desc: "Shut down the pc",
-    available: false,
-  },
-  {
-    cmd: "settings",
-    desc: "Settings...",
-    available: false,
+    cmd: "sudo",
+    desc: "Use it at your own risk...",
   },
 ];

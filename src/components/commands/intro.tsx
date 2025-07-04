@@ -1,4 +1,5 @@
 import { JSX, useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
 export default function IntroCommand({
   onLoadEnd,
@@ -32,10 +33,11 @@ export default function IntroCommand({
   }, [asciiSize, onLoadEnd]);
 
   if (fileText !== null) {
+     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
     return (
       <div
         className="whitespace-pre-wrap"
-        dangerouslySetInnerHTML={{ __html: fileText }}
+        dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }}
       />
     );
   }

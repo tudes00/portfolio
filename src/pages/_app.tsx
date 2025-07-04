@@ -1,16 +1,12 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="837c108a-c782-49da-92d7-88eb01da029b"
-        ></script>
         <title>Tudes Portfolio</title>
         <meta property="og:title" content="Tudes Portfolio" />
         <meta
@@ -32,6 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="keywords" content="HTML, CSS, JavaScript" />
         <meta name="author" content="Tudes" />
       </Head>
+      <Script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="837c108a-c782-49da-92d7-88eb01da029b"
+      />
       <Component {...pageProps} />
     </>
   );

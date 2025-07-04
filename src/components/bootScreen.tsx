@@ -28,7 +28,6 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
   useEffect(() => {
     const startDelay = 1500;
     const timeoutId = setTimeout(() => {
-      console.log("starting");
       setIsLoadingStarted(true);
     }, startDelay);
 
@@ -48,7 +47,6 @@ export default function BootScreen({ onBootEnd }: BootScreenProps) {
       return () => clearTimeout(timeout);
     } else if (progress >= 100) {
       setTimeout(onBootEnd, 20);
-      console.log("finish");
     }
   }, [progress, isLoadingStarted, onBootEnd]);
 

@@ -6,6 +6,7 @@ import skills from "./commands/skills";
 import links from "./commands/links";
 import stats from "./commands/stats";
 import ProjectCommand from "./commands/project";
+import SudoCommand from "./commands/sudo";
 
 import { JSX } from "react";
 
@@ -28,5 +29,6 @@ export function commandRegistry(
         setInputVal={setInputVal}
       />
     ),
+    sudo: (args?: string) => <SudoCommand args={args} />,
   };
 }

@@ -1,4 +1,5 @@
 import { JSX, useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
 export default function NeoFetchCommand({
   onLoadEnd,
@@ -24,25 +25,17 @@ export default function NeoFetchCommand({
   }, [onLoadEnd]);
 
   if (fileText !== null) {
+     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
     return (
       <div
         className="terminal-html"
-        dangerouslySetInnerHTML={{ __html: fileText }}
+        dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }}
       />
     );
   }
 
   if (!loading) {
     return <span>Error when loading neofetch file</span>;
-  }
-
-  if (fileText !== null) {
-    return (
-      <div
-        className="terminal-html"
-        dangerouslySetInnerHTML={{ __html: fileText }}
-      />
-    );
   }
 
   return <span>Loading ...</span>;

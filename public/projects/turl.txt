@@ -1,4 +1,4 @@
-<h2 style="font-size: 1rem; font-weight: bold;">🔗 Turl, A modern URL shortener</h2>
+<h2 style="font-size: 1.5rem; font-weight: bold;">🔗 Turl, A modern URL shortener</h2>
 Turl is a free and secure URL shortener that help you manage your URLs and track clicks easily
 
 <img style="width: 800px" alt="Turl" src="/images/turl.png">
@@ -9,4 +9,6 @@ Turl is a free and secure URL shortener that help you manage your URLs and track
 <span style="font-size: 1rem; font-weight: bold;">TODO LIST:</span><ul><li> ·🖼️ make a tracking pixel maker</li></ul>
 PageSpeed Insights:
 <img style="width: 600px; margin-top: 20px" alt="TurlPSI" src="/images/psi.svg">
+<span style="font-size: 1rem; font-weight: bold;">Project information:</span>
+<ul><li> ·🗓️ created on February 2, 2025</li><li> ·🗂️ categories: Web, TypeScript, Productivity, Open Source</li></ul>
 <a style="text-decoration: underline; color: #48b3a4" href="https://eturl.vercel.app/s/turl" target="_blank">View website</a>  <a style="text-decoration: underline; color: #48b3a4" href="https://github.com/tudes00/Turl" target="_blank">Github Repo</a>

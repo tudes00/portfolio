@@ -17,7 +17,7 @@ I made a terminal portfolio, It was quite fun to do!
    ```
 2. Install dependencies:
    ```sh
-   npm install;
+   npm install
    ```
 
 4. Run locally:

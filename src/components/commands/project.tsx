@@ -2,6 +2,10 @@ import { JSX, useEffect, useState } from "react";
 import Image from "next/image";
 import { iconMap } from "./iconMap";
 import { LuClock2 } from "react-icons/lu";
+import { FaRegCircleCheck, FaRegCirclePause } from "react-icons/fa6";
+import { IoHourglassOutline } from "react-icons/io5";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { TbHourglassEmpty } from "react-icons/tb";
 
 function getCategoryIcon(name: string) {
   const entry = iconMap[name];
@@ -114,6 +118,18 @@ export default function ProjectCommand({
                       : status === "abandoned"
                         ? "bg-red-400 text-red-100"
                         : "bg-gray-700 text-gray-300";
+              const statusIcon =
+                status === "done" ? (
+                  <FaRegCircleCheck />
+                ) : status === "in progress" ? (
+                  <IoHourglassOutline />
+                ) : status === "shelved" ? (
+                  <FaRegCirclePause />
+                ) : status === "abandoned" ? (
+                  <RiCloseCircleLine />
+                ) : (
+                  <TbHourglassEmpty />
+                );
 
               return (
                 <div
@@ -148,8 +164,9 @@ export default function ProjectCommand({
                   <div className="flex justify-end mt-3 mr-3 relative z-50">
                     {project.status && (
                       <span
-                        className={`inline-block px-2 py-0.5 rounded-full font-mono tracking-wide ${statusStyles}`}
+                        className={`flex flex-row gap-1 items-center px-2 py-0.5 rounded-full font-mono tracking-wide ${statusStyles}`}
                       >
+                        {statusIcon}
                         {project.status}
                       </span>
                     )}

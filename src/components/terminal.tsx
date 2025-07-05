@@ -55,7 +55,7 @@ export default function Terminal() {
   }, []);
 
   function executeCommand(input: string): React.JSX.Element | string {
-    const cmd = input.trim();
+    const cmd = input.trim().toLowerCase();
     setInputValueHistoryNbr(0);
 
     if (cmd === "") return "";

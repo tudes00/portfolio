@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/f05122ba-bb8d-4d23-8f5b-713fe89f7296)
 
-I made a terminal portfolio, It was quite fun to do!
+I made a terminal portfolio, It was quite fun to do! And with some Easter eggs 🥚
 
 ## Tech Stack 🏗️
 

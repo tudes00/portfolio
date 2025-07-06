@@ -138,7 +138,7 @@ export default function ProjectCommand({
                   key={index}
                   onClick={() => setInputVal(`project ${project.name}`)}
                   className="relative rounded-lg border-2 border-dashed border-[#be8d84]/40 bg-[#1e1e1e] shadow-md overflow-hidden hover:border-[#be8d84]/80 hover:scale-[1.005] transition-all cursor-pointer"
-                  style={{ height: "400px" }}
+                  style={{ height: "300px" }}
                 >
                   <Image
                     src={project.img}
@@ -239,7 +239,7 @@ export default function ProjectCommand({
   }
 
   if (fileText !== null) {
-    const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
+    const sanitizedHtmlContent = DOMPurify.sanitize(fileText, { ADD_ATTR: ['target'] });
     return (
       <div
         className=""

@@ -33,7 +33,7 @@ export default function IntroCommand({
   }, [asciiSize, onLoadEnd]);
 
   if (fileText !== null) {
-    const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
+    const sanitizedHtmlContent = DOMPurify.sanitize(fileText, { ADD_ATTR: ['target'] });
     return (
       <div
         className="whitespace-pre-wrap"

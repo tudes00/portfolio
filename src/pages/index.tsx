@@ -25,6 +25,7 @@ export default function Home() {
     }
   }, []);
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
     };

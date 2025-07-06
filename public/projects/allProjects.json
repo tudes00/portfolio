@@ -26,6 +26,22 @@
     "date": "2024-08-29"
   },
   {
+    "name": "Portfolio",
+    "desc": "present my projects, about me, blogs and many others...",
+    "img": "/images/portfolio.png",
+    "github": "https://github.com/tudes00/portfolio",
+    "status": "Done",
+    "categories": [
+      "Web",
+      "React",
+      "Personal",
+      "Portfolio",
+      "Next.js",
+      "Open Source"
+    ],
+    "date": "2025-07-06"
+  },
+  {
     "name": "Better Pronote",
     "desc": "Better Pronote is an extension that enhances your Pronote experience with various options. It adds features and customizes your interface.",
     "img": "https://bp.okman65.xyz/assets/logo.png",
@@ -39,21 +55,6 @@
     "img": "/images/staym.png",
     "status": "In progress",
     "categories": ["Web", "Gamification", "Productivity", "React"]
-  },
-  {
-    "name": "Portfolio",
-    "desc": "present my projects, about me, blogs and many others...",
-    "img": "/images/portfolio.png",
-    "github": "https://github.com/tudes00/portfolio",
-    "status": "In progress",
-    "categories": [
-      "Web",
-      "React",
-      "Personal",
-      "Portfolio",
-      "Next.js",
-      "Open Source"
-    ]
   },
   {
     "name": "VulnHunter",

@@ -1,1 +1,7 @@
-Soon...
+Well, this was an old project. I wanted to create a website to track the evolution of the <a style="text-decoration: underline; color: #48b3a4" href="https://albiononline.com/home" target="_blank">Albion Online</a> market.
+<img style="width: 800px" alt="Turl" src="/images/aomp-demo.png">
+It looks really bad… It's not optimized at all, and there are much better tools out there now, so please 🙏 don't use it xD
+
+<span style="font-size: 1rem; font-weight: bold;">Project information:</span>
+<ul><li> ·🗓️ created on August 29, 2024</li><li> ·🗂️ categories: Web, Game, Data Visualization, Scraper, Open Source</li></ul>
+<a style="text-decoration: underline; color: #48b3a4" href="https://aomp.vercel.app/" target="_blank">View website</a>  <a style="text-decoration: underline; color: #48b3a4" href="https://github.com/tudes00/aomp" target="_blank">Github Repo</a>

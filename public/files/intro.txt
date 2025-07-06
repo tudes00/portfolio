@@ -4,5 +4,6 @@
    \ \_\  \ \_____\  \ \____-  \ \_____\  \/\_____\
     \/_/   \/_____/   \/____/   \/_____/   \/_____/ © 2025
 </span>
-Hello, welcome to my portfolio!                 
-Use '<span class="blue-output">help</span>' to get started. 
+Hello, welcome to my portfolio!
+<span style="color: #5e5e5e;">(If you would like to contact me, I will be back on July 25th!)</span>
+Use '<span class="blue-output">help</span>' to get started.

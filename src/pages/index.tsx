@@ -56,14 +56,13 @@ export default function Home() {
   }, []);
 
   return (
-    <AsciiLayout>
-
-      <Analytics />
-      {bootFinished ? (
-        <Terminal />
-      ) : (
-        <BootScreen onBootEnd={() => setBootFinished(true)} />
-      )}
-    </AsciiLayout>
+      <AsciiLayout>
+        <Analytics />
+        {bootFinished ? (
+          <Terminal />
+        ) : (
+          <BootScreen onBootEnd={() => setBootFinished(true)} />
+        )}
+      </AsciiLayout>
   );
 }

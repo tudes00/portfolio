@@ -1,8 +1,7 @@
 import { JSX, useEffect } from "react";
 
 export default function SudoCommand({ args }: { args?: string }): JSX.Element {
-  useEffect(() => {
-  }, [args]);
+  useEffect(() => {}, [args]);
 
   if (!args) {
     return <span>Usage: sudo &lt;paswword&gt;</span>;

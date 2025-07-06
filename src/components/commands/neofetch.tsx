@@ -25,7 +25,7 @@ export default function NeoFetchCommand({
   }, [onLoadEnd]);
 
   if (fileText !== null) {
-     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
+    const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
     return (
       <div
         className="terminal-html"

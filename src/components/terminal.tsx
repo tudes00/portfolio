@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef, useMemo, useCallback } from "react";
+import React from "react";
+
 import TermInfo from "./termInfo";
 import { commandRegistry as getCommandRegistry } from "./commandRegistry";
 
@@ -17,6 +19,9 @@ export default function Terminal() {
   const [inputValueHistoryNbr, setInputValueHistoryNbr] = useState(0);
   const [cursorPos, setCursorPos] = useState(0);
 
+  const queryParameters = new URLSearchParams(window.location.search);
+  const cmdURL = queryParameters.get("cmd");
+
   const [isProcessing, setIsProcessing] = useState(false);
 
   const terminalBottomRef = useRef<HTMLDivElement>(null);
@@ -31,13 +36,58 @@ export default function Terminal() {
     [scrollToBottom, setInputVal],
   );
 
-  useEffect(() => {
-    const cmd = "intro";
-    const [cmdName, ...args] = cmd.split(" ");
-    const output = commandRegistry[cmdName]?.(args.join(" "));
+  const executeCommand = useCallback(
+    (input: string): void => {
+      setIsProcessing(true);
+      const cmd = input.trim().toLowerCase();
+      setInputValueHistoryNbr(0);
+      console.log("execute: ", cmd);
+      let output: React.JSX.Element | string;
+      let done: boolean = false;
 
-    setHistory([{ command: cmd, output }]);
-  }, [commandRegistry]);
+      if (cmd === "") {
+        output = "";
+        done = true;
+      }
+
+      if (cmd === "clear" && !done) {
+        setHistory([]);
+        output = "";
+        done = true;
+      }
+
+      const [cmdName, ...args] = cmd.split(" ");
+      const commandFn = commandRegistry[cmdName];
+      if (commandFn && !done) {
+        output = commandFn(args.join(" "));
+        done = true;
+      } else if (!done) {
+        output = "Command not found. Type 'help' to see available commands.";
+        done = true;
+      }
+
+      if (cmd !== "clear") {
+        setHistory((prev) => [...prev, { command: cmd, output }]);
+      }
+
+      if (cmd !== "") {
+        setInputHistory((prev) => [...prev, { command: cmd }]);
+      }
+
+      setInputVal("");
+      setTimeout(() => setIsProcessing(false), 100);
+    },
+    [commandRegistry],
+  );
+
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (hasRun.current) return;
+    hasRun.current = true;
+    executeCommand("intro");
+    if (cmdURL) executeCommand(cmdURL);
+  }, [executeCommand, cmdURL]);
 
   useEffect(() => {
     if (!terminalBottomRef.current) return;
@@ -54,41 +104,8 @@ export default function Terminal() {
     }
   }, []);
 
-  function executeCommand(input: string): React.JSX.Element | string {
-    const cmd = input.trim().toLowerCase();
-    setInputValueHistoryNbr(0);
-
-    if (cmd === "") return "";
-
-    if (cmd === "clear") {
-      setHistory([]);
-      return "";
-    }
-
-    const [cmdName, ...args] = cmd.split(" ");
-    const commandFn = commandRegistry[cmdName];
-    if (commandFn) return commandFn(args.join(" "));
-
-    return "Command not found. Type 'help' to see available commands.";
-  }
-
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter" && !isProcessing) {
-      setIsProcessing(true);
-
-      const output = executeCommand(inputVal);
-
-      if (inputVal.trim() !== "clear") {
-        setHistory((prev) => [...prev, { command: inputVal, output }]);
-      }
-
-      if (inputVal.trim() !== "") {
-        setInputHistory((prev) => [...prev, { command: inputVal }]);
-      }
-
-      setInputVal("");
-      setTimeout(() => setIsProcessing(false), 100);
-    }
+    if (event.key === "Enter" && !isProcessing) executeCommand(inputVal);
     if (event.key === "ArrowUp") {
       event.preventDefault();
       if (

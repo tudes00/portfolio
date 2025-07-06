@@ -7,7 +7,8 @@ export default function Document() {
       <body className="antialiased">
         <div
           dangerouslySetInnerHTML={{
-            __html: "<!-- orangutan ❤️ --> <!-- I wonder what this password could be used for....🤔 -->",
+            __html:
+              "<!-- orangutan ❤️ --> <!-- I wonder what this password could be used for....🤔 -->",
           }}
         />
         <Main />

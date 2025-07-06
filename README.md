@@ -16,14 +16,16 @@ I made a terminal portfolio, It was quite fun to do! And with some Easter eggs ð
    cd portfolio
    ```
 2. Install dependencies:
+
    ```sh
    npm install
    ```
 
-4. Run locally:
+3. Run locally:
    ```sh
    npm run dev
    ```
 
 # TODO list ðŸ“‡:
+
 - [ ] Add blog

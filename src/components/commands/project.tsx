@@ -239,8 +239,13 @@ export default function ProjectCommand({
   }
 
   if (fileText !== null) {
-     const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
-    return <div className="" dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }} />;
+    const sanitizedHtmlContent = DOMPurify.sanitize(fileText);
+    return (
+      <div
+        className=""
+        dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }}
+      />
+    );
   }
 
   if (!loading) {

@@ -7,7 +7,7 @@ export default function SudoCommand({ args }: { args?: string }): JSX.Element {
     return <span>Usage: sudo &lt;paswword&gt;</span>;
   }
 
-  if (args == "orangutan ❤️") {
+  if (args == "orangutan") {
     return (
       <span className="green">
         Well done.. thanks for exploring my portfolio xD, here&apos;s a reward:{" "}

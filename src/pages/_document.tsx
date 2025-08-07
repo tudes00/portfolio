@@ -8,7 +8,7 @@ export default function Document() {
         <div
           dangerouslySetInnerHTML={{
             __html:
-              "<!-- orangutan ❤️ --> <!-- I wonder what this password could be used for....🤔 -->",
+              "<!-- orangutan --> <!-- I wonder what this password could be used for....🤔 -->",
           }}
         />
         <Main />

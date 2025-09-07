@@ -42,26 +42,10 @@
     "date": "2025-07-06"
   },
   {
-    "name": "Better Pronote",
-    "desc": "Better Pronote is an extension that enhances your Pronote experience with various options. It adds features and customizes your interface.",
-    "img": "https://bp.okman65.xyz/assets/logo.png",
-    "status": "In progress",
-    "link": "https://bp.okman65.xyz/",
-    "categories": ["Extension", "Education", "Productivity", "TypeScript"]
-  },
-  {
-    "name": "Stay Motivated",
-    "desc": "Create personalized roadmaps, earn XP, level up, and unlock achievements as you make progress toward your goals.",
-    "img": "/images/staym.png",
-    "status": "In progress",
-    "categories": ["Web", "Gamification", "Productivity", "React"]
-  },
-  {
-    "name": "VulnHunter",
-    "desc": "VulnHunter, best tool for automating vulnerability scanning and penetration testing! | There is not much functionality at the moment, maybe I will take over the project later",
+    "name": "VulnHunter V2",
+    "desc": "VulnHunter, tool for automating vulnerability scanning and penetration testing!",
     "img": "/images/vulnhunter.png",
-    "status": "Shelved",
-    "github": "https://github.com/tudes00/VulnHunter",
+    "status": "In progress",
     "categories": [
       "Cybersecurity",
       "Automation",
@@ -71,11 +55,26 @@
     ]
   },
   {
+    "name": "Better Pronote",
+    "desc": "Better Pronote is an extension that enhances your Pronote experience with various options. It adds features and customizes your interface.",
+    "img": "https://bp.okman65.xyz/assets/logo.png",
+    "status": "Shelved",
+    "link": "https://bp.okman65.xyz/",
+    "categories": ["Extension", "Education", "Productivity", "TypeScript"]
+  },
+  {
     "name": "Youtube shorts bot",
     "desc": "Auto generate youtube short with AI",
     "img": "/images/youtube-shorts.png",
-    "status": "Not started",
+    "status": "Shelved",
     "categories": ["AI", "Automation", "YouTube", "Content Generation"]
+  },
+  {
+    "name": "Stay Motivated",
+    "desc": "Create personalized roadmaps, earn XP, level up, and unlock achievements as you make progress toward your goals.",
+    "img": "/images/staym.png",
+    "status": "abandoned",
+    "categories": ["Web", "Gamification", "Productivity", "React"]
   },
   {
     "name": "Hack The Bot",

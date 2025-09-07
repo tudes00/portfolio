@@ -6,7 +6,7 @@ I made a terminal portfolio, It was quite fun to do! And with some Easter eggs �
 
 ## Tech Stack 🏗️
 
-- **Frontend**: Rract, Tailwind CSS, TypeScript, Next.js, vercel/analytics, https://umami.is/, vercel
+- **Frontend**: React, Tailwind CSS, TypeScript, Next.js, vercel/analytics, https://umami.is/, vercel
 
 ## URL
 If you want to auto execute command when loading the page you can use "/?cmd=<command here>" in the url

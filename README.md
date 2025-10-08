@@ -31,4 +31,9 @@ If you want to auto execute command when loading the page you can use "/?cmd=<co
 
 # TODO list 📇:
 
-- [ ] Add blog
+- [ ] Add blog (transfer from Zerolab to here (writeups, etc)) 
+- [ ] Add WhatIAmWorkingOn
+- [ ] Add total vuln found
+- [ ] Add total ctf done
+- [ ] Add total visit
+- [ ] Add Zerolab

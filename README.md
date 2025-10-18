@@ -31,9 +31,9 @@ If you want to auto execute command when loading the page you can use "/?cmd=<co
 
 # TODO list 📇:
 
-- [ ] Add blog (transfer from Zerolab to here (writeups, etc)) 
-- [ ] Add WhatIAmWorkingOn
+- [ ] Add A pages for writeups, cybernote, etc (transfer from Zerolab to here (writeups, etc)) 
+- [x] Add WhatIAmWorkingOn
 - [ ] Add total vuln found
 - [ ] Add total ctf done
-- [ ] Add total visit
-- [ ] Add Zerolab
+- [ ] Change the file to be md files
+- [ ] Create an api and a discord bot to get the text from a discord channel (for what I am working on, project) so I can update it easily 

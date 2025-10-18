@@ -1,5 +1,5 @@
 import { JSX, useEffect, useState } from "react";
-import DOMPurify from "dompurify";
+import MarkdownViewer from "../markdownViewer";
 
 export default function AboutCommand({
   onLoadEnd,
@@ -9,7 +9,7 @@ export default function AboutCommand({
   const [fileText, setfileText] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/files/about.txt")
+    fetch("/files/about.md")
       .then((res) => res.text())
       .then((text) => {
         setfileText(text);
@@ -23,12 +23,8 @@ export default function AboutCommand({
   }, [onLoadEnd]);
 
   if (fileText !== null) {
-    const sanitizedHtmlContent = DOMPurify.sanitize(fileText, { ADD_ATTR: ['target'] });
     return (
-      <div
-        className="terminal-html"
-        dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }}
-      />
+      <MarkdownViewer markdownContent={fileText} />
     );
   }
 

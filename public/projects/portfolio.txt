@@ -1,8 +1,0 @@
-<h2 style="font-size: 1.4rem; font-weight: bold;"> 🧑‍💻 This my Portfolio!</h2>
-
-It was really fun to do, now I can publish blogs, share my project with anyone!
-(There is a small easter egg... If you find it, GG, good luke! ❤️)
-
-<span style="font-size: 1rem; font-weight: bold;">Project information:</span>
-<ul><li> ·🗓️ created on July 6, 2025</li><li> ·🗂️ categories: Web, React, Personal, Portfolio, Next.js, Open Source</li></ul>
-<a style="text-decoration: underline; color: #48b3a4" href="https://eturl.vercel.app/s/TPa" target="_blank">View website</a>  <a style="text-decoration: underline; color: #48b3a4" href="https://github.com/tudes00/portfolio" target="_blank">Github Repo</a>

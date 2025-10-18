@@ -18,6 +18,10 @@ export const commands: Command = [
     desc: "About me",
   },
   {
+    cmd: "whatami",
+    desc: "What I am working on?",
+  },
+  {
     cmd: "links",
     desc: "List my social media links and contact information",
   },
@@ -36,16 +40,6 @@ export const commands: Command = [
   {
     cmd: "project <project_name>",
     desc: "Get details about a specific project",
-  },
-  {
-    cmd: "blog",
-    desc: "List my blogs",
-    available: false,
-  },
-  {
-    cmd: "blog <blog_name>",
-    desc: "Get details about a blog",
-    available: false,
   },
   {
     cmd: "neofetch",

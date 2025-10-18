@@ -7,6 +7,7 @@ import links from "./commands/links";
 import stats from "./commands/stats";
 import ProjectCommand from "./commands/project";
 import SudoCommand from "./commands/sudo";
+import WhatamiCommand from "./commands/whatami";
 
 import { JSX } from "react";
 
@@ -19,6 +20,7 @@ export function commandRegistry(
     intro: () => <IntroCommand onLoadEnd={onLoadEnd} />,
     neofetch: () => <NeoFetchCommand onLoadEnd={onLoadEnd} />,
     about: () => <AboutCommand onLoadEnd={onLoadEnd} />,
+    whatami: () => <WhatamiCommand onLoadEnd={onLoadEnd} />,
     skills,
     links,
     stats,

@@ -4,7 +4,7 @@ export default function SudoCommand({ args }: { args?: string }): JSX.Element {
   useEffect(() => {}, [args]);
 
   if (!args) {
-    return <span>Usage: sudo &lt;paswword&gt;</span>;
+    return <span>Usage: sudo &lt;password&gt;</span>;
   }
 
   if (args == "orangutan") {

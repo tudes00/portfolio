@@ -9,6 +9,7 @@ import { TbHourglassEmpty } from "react-icons/tb";
 
 
 import MarkdownViewer from "../markdownViewer";
+import { GITHUB_ALL_PROJECTS_URL, GITHUB_MARKDOWN_URL } from "@/config";
 
 function getCategoryIcon(name: string) {
   const entry = iconMap[name];
@@ -44,7 +45,7 @@ export default function ProjectCommand({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch(`/projects/allProjects.json`)
+    fetch(`${GITHUB_ALL_PROJECTS_URL}`)
       .then((res) => {
         if (!res.ok) {
           setProjects([]);
@@ -68,7 +69,7 @@ export default function ProjectCommand({
             return;
           }
 
-          fetch(`/projects/${args}.md`)
+          fetch(`${GITHUB_MARKDOWN_URL}/projects/${args}.md`)
             .then((res) => {
               if (!res.ok) {
                 setLoading(false);

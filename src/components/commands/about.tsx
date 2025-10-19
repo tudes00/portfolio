@@ -1,5 +1,6 @@
 import { JSX, useEffect, useState } from "react";
 import MarkdownViewer from "../markdownViewer";
+import { GITHUB_MARKDOWN_URL } from "../../config";
 
 export default function AboutCommand({
   onLoadEnd,
@@ -9,7 +10,7 @@ export default function AboutCommand({
   const [fileText, setfileText] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/files/about.md")
+    fetch(`${GITHUB_MARKDOWN_URL}/files/about.md`)
       .then((res) => res.text())
       .then((text) => {
         setfileText(text);

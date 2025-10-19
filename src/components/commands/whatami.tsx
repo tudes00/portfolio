@@ -1,5 +1,6 @@
 import { JSX, useEffect, useState } from "react";
 import MarkdownViewer from "../markdownViewer";
+import { GITHUB_MARKDOWN_URL } from "@/config";
 
 export default function WhatamiCommand({
   onLoadEnd,
@@ -10,7 +11,7 @@ export default function WhatamiCommand({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch("/files/whatami.md")
+    fetch(`${GITHUB_MARKDOWN_URL}/files/whatami.md`)
       .then((res) => res.text())
       .then((text) => {
         setfileText(text);
@@ -20,7 +21,7 @@ export default function WhatamiCommand({
         }, 30);
       })
       .catch(() => {
-        setfileText("Error loading about information.");
+        setfileText("Error loading whatami information.");
         setLoading(false);
       });
   }, [onLoadEnd]);

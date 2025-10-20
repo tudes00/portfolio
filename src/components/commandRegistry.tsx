@@ -10,6 +10,7 @@ import SudoCommand from "./commands/sudo";
 import WhatamiCommand from "./commands/whatami";
 import ChangelogCommand from "./commands/changelog";
 import BlogCommand from "./commands/blog";
+import ZerolabCommand from "./commands/zerolab";
 
 import { JSX } from "react";
 
@@ -36,6 +37,13 @@ export function commandRegistry(
     ),
     blog: (args?: string) => (
       <BlogCommand
+        args={args}
+        onLoadEnd={onLoadEnd}
+        setInputVal={setInputVal}
+      />
+    ),
+    zerolab: (args?: string) => (
+      <ZerolabCommand
         args={args}
         onLoadEnd={onLoadEnd}
         setInputVal={setInputVal}

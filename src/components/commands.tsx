@@ -54,6 +54,14 @@ export const commands: Command = [
     desc: "Show a specific blog",
   },
   {
+    cmd: "zerolab",
+    desc: "List my tutuorials from Zerolab repo",
+  },
+  {
+    cmd: "zerolab <file_name>",
+    desc: "Show a specific tutorial from Zerolab repo",
+  },
+  {
     cmd: "neofetch",
     desc: "Print info about this device",
   },

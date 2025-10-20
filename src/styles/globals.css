@@ -43,6 +43,10 @@ body {
 .green {
   color: #0b9343;
 }
+
+.version {
+  color: #a71010;
+}
 .whitespace-pre-wrap span {
   font-size: inherit !important;
 }

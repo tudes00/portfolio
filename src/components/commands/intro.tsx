@@ -1,5 +1,6 @@
 import { JSX, useEffect, useState } from "react";
 import DOMPurify from "dompurify";
+import {GITHUB_MARKDOWN_URL} from "../../config";
 
 export default function IntroCommand({
   onLoadEnd,
@@ -18,13 +19,13 @@ export default function IntroCommand({
   useEffect(() => {
     if (!asciiSize) return;
 
-    fetch(`/files/${asciiSize}.txt`)
+    fetch(`${GITHUB_MARKDOWN_URL}/data/intro.md?nocache=1`)
       .then((res) => res.text())
       .then((text) => {
         setFileText(text);
         setLoading(false);
         setTimeout(() => {
-          onLoadEnd?.();
+            onLoadEnd?.();
         }, 30);
       })
       .catch(() => {

@@ -11,7 +11,7 @@ export default function WhatamiCommand({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch(`${GITHUB_MARKDOWN_URL}/files/whatami.md`)
+    fetch(`${GITHUB_MARKDOWN_URL}/files/whatami.md?nocache=1`)
       .then((res) => res.text())
       .then((text) => {
         setfileText(text);

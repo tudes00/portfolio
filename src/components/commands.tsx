@@ -14,6 +14,10 @@ export const commands: Command = [
     desc: "It's clear, right?",
   },
   {
+    cmd: "changelog",
+    desc: "List changes and updates",
+  },
+  {
     cmd: "about",
     desc: "About me",
   },
@@ -40,6 +44,14 @@ export const commands: Command = [
   {
     cmd: "project <project_name>",
     desc: "Get details about a specific project",
+  },
+  {
+    cmd: "blog",
+    desc: "List my blog",
+  },
+  {
+    cmd: "blog <blog_name>",
+    desc: "Show a specific blog",
   },
   {
     cmd: "neofetch",

@@ -26,7 +26,7 @@ export default function SkillsCommand(): JSX.Element {
         <strong>Currently learning:</strong>
       </p>
       <Image
-        src="https://skillicons.dev/icons?i=c,cpp,arch,git,clion,figma,nodejs,linux,bash"
+        src="https://skillicons.dev/icons?i=,git,figma,nodejs,linux,bash,vim"
         alt="Currently learning skill icons"
         width={9 * 50}
         height={50}
@@ -42,7 +42,7 @@ export default function SkillsCommand(): JSX.Element {
         <strong>Want to learn:</strong>
       </p>
       <Image
-        src="https://skillicons.dev/icons?i=docker,vim"
+        src="https://skillicons.dev/icons?i=docker,arch"
         alt="Want to learn skill icons"
         width={2 * 50}
         height={50}

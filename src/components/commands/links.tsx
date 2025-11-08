@@ -1,5 +1,4 @@
 import { JSX } from "react";
-import Image from "next/image";
 
 export default function LinkCommand(): JSX.Element {
   return (
@@ -38,7 +37,7 @@ export default function LinkCommand(): JSX.Element {
           🔗 Click Me
         </a>
       </div>
-      <Image src="https://tryhackme-badges.s3.amazonaws.com/tudes.png" alt="Your Image Badge" />
+      <img src="https://tryhackme-badges.s3.amazonaws.com/tudes.png" alt="Your Image Badge" />
     </div>
   );
 }

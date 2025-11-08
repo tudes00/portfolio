@@ -164,3 +164,20 @@ body {
     opacity: 1;
   }
 }
+
+
+.iframe-container {
+  position: relative;
+  width: 100%; /* Prend 100% de la largeur du conteneur parent */
+  padding-top: 56.25%; /* Ratio 16:9 (hauteur / largeur) */
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* S'ajuste à 100% de la largeur du conteneur */
+  height: 100%; /* Prend toute la hauteur du conteneur */
+  border: none; /* Supprime la bordure */
+}
